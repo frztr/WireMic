@@ -14,13 +14,30 @@ public class AppContext {
     private static final int port = 50005;
     private static final int sampleRate = 48000;
     private final DatagramSocket serverSocket;
-
+    SourceDataLine sourceDataLine;
+    DataLine.Info dataLineInfo;
     private Thread thr;
 
     private AppContext()
     {
         try {
             serverSocket = new DatagramSocket(port);
+            format = new AudioFormat(sampleRate, 16, 1, true, false);
+
+            dataLineInfo = new DataLine.Info(SourceDataLine.class, format);
+            try {
+                sourceDataLine = (SourceDataLine) AudioSystem.getLine(dataLineInfo);
+            } catch (LineUnavailableException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                sourceDataLine.open(format);
+            } catch (LineUnavailableException e) {
+                throw new RuntimeException(e);
+            }
+            FloatControl volumeControl = (FloatControl) sourceDataLine.getControl(FloatControl.Type.MASTER_GAIN);
+            volumeControl.setValue(5f);
+            sourceDataLine.start();
         } catch (SocketException e) {
             throw new RuntimeException(e);
         }
@@ -51,24 +68,6 @@ public class AppContext {
     private void startMic()
     {
         byte[] receiveData = new byte[3840];
-        format = new AudioFormat(sampleRate, 16, 1, true, false);
-        DataLine.Info dataLineInfo;
-        dataLineInfo = new DataLine.Info(SourceDataLine.class, format);
-        SourceDataLine sourceDataLine;
-        try {
-            sourceDataLine = (SourceDataLine) AudioSystem.getLine(dataLineInfo);
-        } catch (LineUnavailableException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            sourceDataLine.open(format);
-        } catch (LineUnavailableException e) {
-            throw new RuntimeException(e);
-        }
-        sourceDataLine.start();
-        FloatControl volumeControl = (FloatControl) sourceDataLine.getControl(FloatControl.Type.MASTER_GAIN);
-        volumeControl.setValue(5f);
-
         thr = new Thread(new Runnable() {
             @Override
             public void run() {
