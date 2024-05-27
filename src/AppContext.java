@@ -8,7 +8,7 @@ import java.net.SocketException;
 
 public class AppContext {
     private boolean listening = false;
-    private static final AppContext context = new AppContext();
+    private static AppContext context;
 
     private static AudioFormat format;
     private static final int port = 50005;
@@ -45,6 +45,10 @@ public class AppContext {
 
     public static AppContext getInstance()
     {
+        if(context == null)
+        {
+            context = new AppContext();
+        }
         return context;
     }
 

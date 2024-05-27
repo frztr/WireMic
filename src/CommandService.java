@@ -33,17 +33,40 @@ public class CommandService {
         }
     }
 
-    public void getIpAddresses() {
+    public long getProgramSinkInput(long process_id) {
+        ArrayList<String> list = getProgramOutput("pacmd list-sink-inputs");
+        long currentSink = 0;
+        for (var row : list) {
+            String search = "index: ";
+            int index = row.indexOf(search);
+            if (index != -1)
+            {
+                row = row.substring(index, row.length());
+                currentSink = Long.parseLong(row.split(" ")[1]);
+
+            }
+            search = "application.process.id";
+            index = row.indexOf(search);
+            if (index != -1) {
+                row = row.substring(index, row.length());
+                if (Integer.parseInt(row.split(" ")[2].replace("\"", "")) == process_id) {
+                    return currentSink;
+                }
+            }
+        }
+        return -1;
+    }
+
+    private ArrayList<String> getProgramOutput(String command) {
         Process proc = null;
         try {
-            proc = Runtime.getRuntime().exec("ifconfig");
+            proc = Runtime.getRuntime().exec(command);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         BufferedReader stdout = new BufferedReader(new InputStreamReader(proc.getInputStream()));
         String _read = "";
         ArrayList<String> list = new ArrayList<String>();
-        ArrayList<String> ipAddresses = new ArrayList<String>();
 
         while (true) {
             try {
@@ -53,6 +76,13 @@ public class CommandService {
             }
             list.add(_read);
         }
+        return list;
+    }
+
+    public void getIpAddresses() {
+        ArrayList<String> list = getProgramOutput("ifconfig");
+        ArrayList<String> ipAddresses = new ArrayList<String>();
+
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).indexOf("wl") >= 0 && (i + 1) < list.size()) {
                 String info = list.get(i + 1);
