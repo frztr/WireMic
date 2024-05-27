@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7e5cba9d-30ff-4879-bccb-e94c83c4c25b" name="Changes" comment="Upload">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/MicServer_jar/MicServer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MicServer_jar/MicServer.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppContext.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +100,7 @@
       <workItem from="1716750886806" duration="1503000" />
       <workItem from="1716798653752" duration="8035000" />
       <workItem from="1716807136689" duration="2234000" />
-      <workItem from="1716823992895" duration="632000" />
+      <workItem from="1716823992895" duration="1533000" />
     </task>
     <task id="LOCAL-00001" summary="Upload">
       <option name="closed" value="true" />
