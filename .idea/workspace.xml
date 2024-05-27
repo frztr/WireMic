@@ -11,14 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7e5cba9d-30ff-4879-bccb-e94c83c4c25b" name="Changes" comment="Upload">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/AppContext$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/AppContext$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/AppContext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/CommandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/CommandService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MicServer_jar/MicServer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MicServer_jar/MicServer.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CommandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,8 +76,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -107,6 +101,7 @@
       <workItem from="1716750886806" duration="1503000" />
       <workItem from="1716798653752" duration="8035000" />
       <workItem from="1716807136689" duration="2234000" />
+      <workItem from="1716823992895" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="Upload">
       <option name="closed" value="true" />

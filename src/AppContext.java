@@ -85,6 +85,7 @@ public class AppContext {
                                 public void run() {
                                     try {
                                         byte[] soundbytes = receivePacket.getData();
+                                        System.out.println("Data received: " + soundbytes.length +" bytes.");
                                         sourceDataLine.write(soundbytes, 0, soundbytes.length);
                                     } catch (Exception e) {
                                         e.printStackTrace();
