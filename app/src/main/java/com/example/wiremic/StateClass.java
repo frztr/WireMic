@@ -18,6 +18,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class StateClass {
     byte[] buffer;
@@ -26,7 +27,7 @@ public class StateClass {
 
     static AudioRecord recorder;
 
-    private int sampleRate = 48000; // 44100 for music
+    private int sampleRate = 44100; // 44100 for music
     private int channelConfig = AudioFormat.CHANNEL_IN_MONO;
     private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
     int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
@@ -98,26 +99,11 @@ public class StateClass {
             public void run() {
                 try {
 
-//                    MediaPlayer mediaPlayer = new MediaPlayer();
-//                    try {
-//                        mediaPlayer.setDataSource("https://psv4.vkuseraudio.net/s/v1/amp2/p9wBzpsvdZAc2aZex0fE1hN5Cpz39V9O0JNAowitHCNOGgjLeuVEfsSalgktNJJtjoKt8N1owHVzc3QazkxRexmSiFuhi-IKgNlNHkty0TU4kz9obTUC8vMLHEox_eyDlkmeRG9n9zA2s2x4_aDe_mDjJV5BCGf40LjW.mp3?siren=1");
-//                        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//                            @Override
-//                            public void onPrepared(MediaPlayer mediaPlayer)
-//                            {
-//                                mediaPlayer.start();
-//                            }
-//                        });
-//                        mediaPlayer.prepareAsync();
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-
 
                     DatagramSocket socket = new DatagramSocket();
                     Log.d("VS", "Socket Created");
 
-                    byte[] buffer = new byte[minBufSize];
+                    byte[] buffer = new byte[minBufSize*2];
 
                     Log.d("VS", "Buffer created of size " + minBufSize);
                     DatagramPacket packet;
@@ -147,10 +133,9 @@ public class StateClass {
 
                         //putting buffer in the packet
                         packet = new DatagramPacket(buffer,buffer.length,destination,port);
-
+                        System.out.println("Packet sending: " + new Date().getTime());
                         socket.send(packet);
-                        System.out.println("MinBufferSize: " +minBufSize);
-
+                        System.out.println("Packet sent: " + new Date().getTime());
                     }
 
                 } catch(UnknownHostException e) {
