@@ -36,27 +36,16 @@ class Main {
         if (System.getProperty("os.name").toString().toLowerCase().indexOf("linux") != -1) {
 
             long process_id = ProcessHandle.current().pid();
-            //System.out.println(process_id);
-//            Process runt = Runtime.getRuntime().exec(
-//                    "pacmd unload-module module-null-sink && " +
-//                            "pacmd unload-module module-remap-source && " +
-//                            "pactl load-module module-null-sink sink_name=\"WireMicSpeaker\" " +
-//                            "sink_properties=device.description=\"WireMicSpeaker\" && " +
-//                            "pactl load-module module-remap-source master=\"WireMicSpeaker.monitor\" " +
-//                            "source_name=\"WireMic\" source_properties=device.description=\"WireMic\" && " +
-//                            "pacmd move-sink-input " + CommandService.getInstance().getProgramSinkInput(process_id) + " WireMic");
 
             Runtime.getRuntime().exec("pacmd unload-module module-null-sink");
             Runtime.getRuntime().exec("pacmd unload-module module-remap-source");
             Runtime.getRuntime().exec("pactl load-module module-null-sink sink_name=\"WireMicSpeaker\" sink_properties=device.description=\"WireMicSpeaker\"");
             Runtime.getRuntime().exec("pactl load-module module-remap-source master=\"WireMicSpeaker.monitor\" source_name=\"WireMic\" source_properties=device.description=\"WireMic\"");
             long sinkinput = CommandService.getInstance().getProgramSinkInput(process_id);
-//            System.out.println(sinkinput);
             Runtime.getRuntime().exec("pacmd move-sink-input " + sinkinput + " WireMicSpeaker");
             System.out.println("Started on ips:");
             CommandService.getInstance().getIpAddresses();
         }
-        // ( 1280 for 16 000Hz and 3584 for 44 100Hz (use AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat) to get the correct size)
 
 
         BufferedReader _reader = new BufferedReader(new InputStreamReader(System.in));
