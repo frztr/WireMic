@@ -27,10 +27,11 @@ public class StateClass {
 
     static AudioRecord recorder;
 
-    private int sampleRate = 44100; // 44100 for music
+    private int sampleRate = 44100;
     private int channelConfig = AudioFormat.CHANNEL_IN_MONO;
     private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
-    int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
+//    int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
+    int minBufSize = 128;
     private static boolean status = true;
 
     static Context context;
@@ -127,15 +128,9 @@ public class StateClass {
 
 
                     while(status) {
-
-                        //reading data from MIC into buffer
                         minBufSize = recorder.read(buffer, 0, buffer.length);
-
-                        //putting buffer in the packet
                         packet = new DatagramPacket(buffer,buffer.length,destination,port);
-                        System.out.println("Packet sending: " + new Date().getTime());
                         socket.send(packet);
-                        System.out.println("Packet sent: " + new Date().getTime());
                     }
 
                 } catch(UnknownHostException e) {

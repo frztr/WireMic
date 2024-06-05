@@ -32,18 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Button startButton, stopButton;
 
-    public byte[] buffer;
-    public static DatagramSocket socket;
-    private int port = 50005;
-
-    AudioRecord recorder;
-
-    private int sampleRate = 44100; // 44100 for music
-    private int channelConfig = AudioFormat.CHANNEL_IN_MONO;
-    private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
-    int minBufSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
-    private boolean status = true;
-
     private StateClass stateStore;
 
     @Override
