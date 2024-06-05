@@ -6,6 +6,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.Date;
+import java.lang.Thread;
 
 public class AppContext {
     private boolean listening = false;
@@ -19,7 +20,7 @@ public class AppContext {
     DataLine.Info dataLineInfo;
     private Thread thr;
 //    private static final int buffSize = 3584;
-private static final int buffSize = 128;
+    private static final int buffSize = 128;
 
     private AppContext()
     {
@@ -69,17 +70,17 @@ private static final int buffSize = 128;
     }
     private void killMic()
     {
-        thr.interrupt();
+        this.thr.interrupt();
     }
 
     private void startMic()
     {
         byte[] receiveData = new byte[buffSize*2];
         DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-        thr = new Thread(new Runnable() {
+        this.thr = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true) {
+                while (!Thread.currentThread().isInterrupted()) {
 
                         try {
                             serverSocket.receive(receivePacket);
@@ -92,7 +93,7 @@ private static final int buffSize = 128;
                 }
             }
         });
-        thr.start();
+        this.thr.start();
     }
 
     public boolean getListening()

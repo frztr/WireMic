@@ -11,11 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7e5cba9d-30ff-4879-bccb-e94c83c4c25b" name="Changes" comment="Upload">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/AppContext$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/AppContext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +106,8 @@
       <workItem from="1717520721276" duration="3462000" />
       <workItem from="1717529234737" duration="3204000" />
       <workItem from="1717606474977" duration="7064000" />
-      <workItem from="1717616705877" duration="171000" />
+      <workItem from="1717616705877" duration="1729000" />
+      <workItem from="1717620353549" duration="852000" />
     </task>
     <task id="LOCAL-00001" summary="Upload">
       <option name="closed" value="true" />
