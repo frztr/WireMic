@@ -125,14 +125,15 @@ public class StateClass {
 
                     recorder.startRecording();
 
-
+                    packet = new DatagramPacket(buffer,buffer.length,destination,port);
                     while(status) {
 
                         //reading data from MIC into buffer
                         minBufSize = recorder.read(buffer, 0, buffer.length);
 
                         //putting buffer in the packet
-                        packet = new DatagramPacket(buffer,buffer.length,destination,port);
+
+                        packet.setData(buffer);
                         System.out.println("Packet sending: " + new Date().getTime());
                         socket.send(packet);
                         System.out.println("Packet sent: " + new Date().getTime());
