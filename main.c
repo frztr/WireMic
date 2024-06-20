@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     prctl(PR_SET_PDEATHSIG, SIGTERM);
     close(outpipefd[1]);
     close(inpipefd[0]);
-    execlp("java", "java", "-jar", "MicServer.jar", NULL);
+    execlp("java", "java", "-jar", "/usr/bin/MicServer.jar", NULL);
     exit(1);
   }
   close(outpipefd[0]);
