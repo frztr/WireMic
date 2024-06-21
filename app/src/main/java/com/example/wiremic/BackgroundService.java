@@ -16,8 +16,13 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-public class BackgroundService extends Service implements IBackgroundListener {
+import com.example.wiremic.events.StatusChangedEvent;
 
+public class BackgroundService extends Service implements
+//        IBackgroundListener,
+        IListener<StatusChangedEvent> {
+
+    private IModel model;
     BackgroundService.BackgroundBinder binder = new BackgroundBinder();
     @Nullable
     @Override
@@ -25,8 +30,13 @@ public class BackgroundService extends Service implements IBackgroundListener {
         return binder;
     }
 
+//    @Override
+//    public void onStateUpdated(boolean state) {
+//        createNotification();
+//    }
+
     @Override
-    public void onStateUpdated(boolean state) {
+    public void onEvent(StatusChangedEvent event) {
         createNotification();
     }
 
@@ -34,14 +44,16 @@ public class BackgroundService extends Service implements IBackgroundListener {
     {
         BackgroundService getService() { return BackgroundService.this;}
     }
-    private StateClass state;
+    //private StateClass state;
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        StateClass.getInstance().addBackgroundListener(this);
+        model = ServiceProvider.getProvider().<IModel>getSingleton(IModel.class);
+        model.addListener(this);
+        //StateClass.getInstance().addBackgroundListener(this);
         Intent notifintent = new Intent(this,BackgroundService.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notifintent, 0);
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "TestChannel")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "WireMicChannel")
                 .setContentTitle(getText(R.string.app_name))
                 .setContentText(getText(R.string.app_name))
                 .setSmallIcon(R.drawable.app_icon)
@@ -63,7 +75,7 @@ public class BackgroundService extends Service implements IBackgroundListener {
     {
         Intent notifintent = new Intent(getApplicationContext(),BackgroundService.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, notifintent, 0);
-        Notification notification = new NotificationCompat.Builder(getApplicationContext(), "TestChannel")
+        Notification notification = new NotificationCompat.Builder(getApplicationContext(), "WireMicChannel")
                     .setContentTitle("WireMic")
                     .setContentText("WireMic")
                     .setContentIntent(pendingIntent)
