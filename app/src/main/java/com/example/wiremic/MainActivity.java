@@ -3,6 +3,7 @@ package com.example.wiremic;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ComponentName;
@@ -10,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
@@ -20,25 +22,15 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
-
-import com.example.wiremic.events.Event;
+import android.widget.ImageButton;
 import com.example.wiremic.events.StatusChangedEvent;
-
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity implements IListener<StatusChangedEvent> {
 
-    private Button startButton, stopButton;
+    private ImageButton micButton;
     private EditText editText;
-    //private StateClass stateStore;
     private IModel model;
     private IDataController dataController;
     private IAudioController audioController;
@@ -48,17 +40,19 @@ public class MainActivity extends AppCompatActivity implements IListener<StatusC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startButton = (Button) findViewById(R.id.start_button);
-        stopButton = (Button) findViewById(R.id.stop_button);
         editText = (EditText) findViewById(R.id.ipAddress);
+        micButton = (ImageButton) findViewById(R.id.mic_imageButton);
 
         editText.addTextChangedListener(watcher);
-        startButton.setOnClickListener(startListener);
-        stopButton.setOnClickListener(stopListener);
 
+        micButton.setOnClickListener(micButtonListener);
 
-        //stateStore = StateClass.getInstance();
-        //stateStore.setContext(getApplicationContext());
+        ActivityCompat.requestPermissions(this,new String[]{
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.FOREGROUND_SERVICE,
+                Manifest.permission.INTERNET,
+                Manifest.permission.ACCESS_NETWORK_STATE
+        },1);
 
 
         ServiceProvider provider = ServiceProvider.getProvider();
@@ -74,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements IListener<StatusC
         model = provider.<IModel>getSingleton(IModel.class);
         model.<StatusChangedEvent>addListener(this);
 
+        editText.setText(model.getIp());
+        editText.setEnabled(!model.getStatus());
 
         StartAudioService();
     }
@@ -92,25 +88,17 @@ public class MainActivity extends AppCompatActivity implements IListener<StatusC
         }
     };
 
-    private final OnClickListener stopListener = new OnClickListener() {
-
+    private final OnClickListener micButtonListener = new OnClickListener() {
         @Override
-        public void onClick(View arg0) {
-            audioController.MicOff();
-//            stateStore.MicOff();
+        public void onClick(View view) {
+            if(model.getStatus()) {
+                audioController.MicOff();
+            }
+            else
+            {
+                audioController.MicOn();
+            }
         }
-
-    };
-
-    private final OnClickListener startListener = new OnClickListener() {
-
-        @Override
-        public void onClick(View arg0) {
-//            EditText ed1 = editText;
-//            stateStore.MicOn(ed1.getText().toString());
-            audioController.MicOn();
-        }
-
     };
 
     public void StartAudioService()
@@ -140,6 +128,14 @@ public class MainActivity extends AppCompatActivity implements IListener<StatusC
 
     @Override
     public void onEvent(StatusChangedEvent event) {
-        System.out.println("Status changed:"+ event.getStatus());
+        editText.setEnabled(!event.getStatus());
+        if(event.getStatus())
+        {
+            micButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_mic_24));
+        }
+        else
+            {
+                micButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_mic_off_24));
+            }
     }
 }

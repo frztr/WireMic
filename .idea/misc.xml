@@ -10,6 +10,13 @@
         <entry key="..\:/Users/mrzak/AndroidStudioProjects/WireMic/app/src/main/res/mipmap-anydpi-v26/AppIcon.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/mrzak/AndroidStudioProjects/WireMic/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/mrzak/AndroidStudioProjects/WireMic/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/mrzak/Desktop/WireMic/app/src/main/res/drawable/ic_baseline_mic_24.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/mrzak/Desktop/WireMic/app/src/main/res/drawable/ic_baseline_mic_off_24.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/mrzak/Desktop/WireMic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/mrzak/Desktop/WireMic/app/src/main/res/drawable/ic_toggle_bg.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/mrzak/Desktop/WireMic/app/src/main/res/drawable/mic_button_draw.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/mrzak/Desktop/WireMic/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/mrzak/Desktop/WireMic/app/src/main/res/layout/toggle_mic_button.xml" value="0.20052083333333334" />
       </map>
     </option>
   </component>

@@ -14,15 +14,20 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Date;
 
-public class AudioController implements IAudioController  {
+public class AudioController implements IAudioController {
 
     IModel model;
-    public AudioController()
-    {
+    public AudioController() {
         model = ServiceProvider.getProvider().<IModel>getSingleton(IModel.class);
+        if (ActivityCompat.checkSelfPermission(ServiceProvider.getProvider().getContext(), android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        recorder = new AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, minBufSize * 10);
+        buffer = new byte[minBufSize*2];
     }
 
     @Override
@@ -36,21 +41,23 @@ public class AudioController implements IAudioController  {
     public void MicOff() {
         System.out.println("Mic is Off.");
         model.setStatus(false);
-        recorder.release();
         recorder.stop();
-        streamThread.stop();
+//        recorder.release();
+        socket.close();
+//        streamThread.interrupt();
+//        System.out.println("Interrupted:"+ streamThread.isInterrupted());
     }
 
     byte[] buffer;
     static DatagramSocket socket;
     private int port = 50005;
 
-    static AudioRecord recorder;
+    private AudioRecord recorder;
 
     private int sampleRate = 44100;
     private int channelConfig = AudioFormat.CHANNEL_IN_MONO;
     private int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
-    int minBufSize = 128;
+    private final int minBufSize = 128;
     Thread streamThread;
 
     private void startStreaming() {
@@ -60,35 +67,19 @@ public class AudioController implements IAudioController  {
             @Override
             public void run() {
                 try {
-                    DatagramSocket socket = new DatagramSocket();
-                    Log.d("VS", "Socket Created");
-
-                    byte[] buffer = new byte[minBufSize*2];
-
-                    Log.d("VS", "Buffer created of size " + minBufSize);
-                    DatagramPacket packet;
-
-                    String ip = "192.168.137.1";
+                    String ip = "127.0.0.1";
                     String modelIp = model.getIp();
                     if(modelIp != "")
                     {
                         ip = modelIp;
                     }
                     final InetAddress destination = InetAddress.getByName(ip);
-                    Log.d("VS", "Address retrieved");
-
-
-                    if (ActivityCompat.checkSelfPermission(ServiceProvider.getProvider().getContext(), android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                        return;
-                    }
-                    recorder = new AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate, channelConfig, audioFormat, minBufSize * 10);
-                    Log.d("VS", "Recorder initialized");
-
+                    socket = new DatagramSocket();
                     recorder.startRecording();
-
-                    packet = new DatagramPacket(buffer,buffer.length,destination,port);
+                    DatagramPacket packet = new DatagramPacket(buffer,buffer.length,destination,port);
                     while(model.getStatus()) {
-                        minBufSize = recorder.read(buffer, 0, buffer.length);
+//                       minBufSize = recorder.read(buffer, 0, buffer.length);
+                        recorder.read(buffer, 0, buffer.length);
                         packet.setData(buffer);
                         socket.send(packet);
                     }

@@ -44,7 +44,7 @@ public class ServiceProvider {
         return provider;
     }
 
-    <T> T getService(Class<T> I)
+    <T> T getService(Class I)
     {
         Class C =  serviceCollection.get(I);
         try {
@@ -57,7 +57,7 @@ public class ServiceProvider {
         return null;
     }
 
-    <T> T getSingleton(Class<T> I)
+    <T> T getSingleton(Class I)
     {
         Object o = instances.get(I);
         if(o == null)
