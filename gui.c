@@ -47,8 +47,7 @@ static void activate(GtkApplication *app, gpointer user_data)
   grid = gtk_grid_new ();
   gtk_window_set_child (GTK_WINDOW (window), grid);
   
-  char* msg = calloc(30,sizeof(char));
-  strcat(msg,"Your ip: ");
+  char* msg = calloc(512,sizeof(char));
   strcat(msg,user_data);
   label = gtk_label_new(msg);
   gtk_widget_set_margin_top(label,12);
@@ -73,7 +72,6 @@ int build_app(int argc, char *argv[])
 
   char* ip;
   api_t* api = api_get_instance();
-  ip = api_get_output(api);
   sleep(1);
   ip = api_get_output(api);
 
