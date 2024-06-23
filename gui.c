@@ -74,6 +74,7 @@ int build_app(int argc, char *argv[])
   char* ip;
   api_t* api = api_get_instance();
   ip = api_get_output(api);
+  sleep(1);
   ip = api_get_output(api);
 
   g_signal_connect (app, "activate", G_CALLBACK (activate), ip);

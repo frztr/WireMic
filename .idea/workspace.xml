@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MicServer:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7e5cba9d-30ff-4879-bccb-e94c83c4c25b" name="Changes" comment="Upload">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/MicServer_jar/MicServer.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/MicServer_jar/MicServer.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/AppContext$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MicServer/AppContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/AppContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MicServer/CommandService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/CommandService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MicServer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MicServer/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CommandService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2fQIb7VwvZjZNJvcLXVWTdo91NX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;WireMicConsole&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/forezzzter/Рабочий стол/WireMic&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/mrzak/IdeaProjects/MicServer/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../Program Files/Java/jdk-22" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="MicServer" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e5cba9d-30ff-4879-bccb-e94c83c4c25b" name="Changes" comment="" />
+      <created>1713726960341</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713726960341</updated>
+      <workItem from="1713726960345" duration="275000" />
+      <workItem from="1713727399681" duration="3413000" />
+      <workItem from="1713730945055" duration="516000" />
+      <workItem from="1713733908560" duration="817000" />
+      <workItem from="1716544959011" duration="12044000" />
+      <workItem from="1716564995289" duration="3570000" />
+      <workItem from="1716587102436" duration="79000" />
+      <workItem from="1716733967130" duration="954000" />
+      <workItem from="1716735845899" duration="10327000" />
+      <workItem from="1716750886806" duration="1503000" />
+      <workItem from="1716798653752" duration="8035000" />
+      <workItem from="1716807136689" duration="2234000" />
+      <workItem from="1716823992895" duration="1533000" />
+      <workItem from="1717485282511" duration="866000" />
+      <workItem from="1717512729207" duration="524000" />
+      <workItem from="1717520721276" duration="3462000" />
+      <workItem from="1717529234737" duration="3204000" />
+      <workItem from="1717606474977" duration="7064000" />
+      <workItem from="1717616705877" duration="1729000" />
+      <workItem from="1717620353549" duration="852000" />
+      <workItem from="1719147059095" duration="1732000" />
+    </task>
+    <task id="LOCAL-00001" summary="Upload">
+      <option name="closed" value="true" />
+      <created>1716734426352</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716734426352</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
