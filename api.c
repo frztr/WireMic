@@ -8,7 +8,7 @@ typedef struct api
 {
     int inpipefd;
     int outpipefd;
-    char buf[256];
+    char buf[512];
 } api_t;
 
 static api_t* api_instance;
